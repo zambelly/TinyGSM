@@ -276,6 +276,7 @@ class TinyGsmA6 : public TinyGsmModem<TinyGsmA6>,
   /*
    * SIM card functions
    */
+#if defined(TINY_GSM_MODEM_A6) || defined(TINY_GSM_MODEM_A7)
  protected:
   String getSimCCIDImpl() {
     sendAT(GF("+CCID"));
@@ -285,6 +286,7 @@ class TinyGsmA6 : public TinyGsmModem<TinyGsmA6>,
     res.trim();
     return res;
   }
+#endif
 
   /*
    * Phone Call functions
